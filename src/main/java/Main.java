@@ -1,5 +1,4 @@
 import problems.SumInLoop;
-import problems.SumOfTwo;
 
 public class Main {
     public static void main(String[] args) {
