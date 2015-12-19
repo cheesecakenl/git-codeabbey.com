@@ -7,12 +7,12 @@ import java.util.List;
 
 public class SumsInLoop {
 
-    public String loop(String file, boolean hasHeader, String seperator) {
-        List<IntegerPair> list = TestData.loadTestData(file, hasHeader, seperator);
+    public String loop(String file, boolean hasHeader, String seperator, int rowSize) {
+        List<Integer[]> list = TestData.loadTestData(file, hasHeader, seperator, rowSize);
 
         StringBuilder sb = new StringBuilder();
-        for (IntegerPair pair : list) {
-            sb.append(pair.getNumber1() + pair.getNumber2());
+        for (Integer[] pairs : list) {
+            sb.append(pairs[0] + pairs[1]);
             sb.append(" ");
         }
 

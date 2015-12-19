@@ -11,39 +11,6 @@ import java.util.List;
 
 public class TestData {
 
-    public static List<IntegerPair> loadTestData(String file, boolean hasHeader, String seperator) {
-        List<IntegerPair> list = new ArrayList<IntegerPair>();
-        try {
-            FileInputStream fstream = new FileInputStream(file);
-
-            DataInputStream in = new DataInputStream(fstream);
-            BufferedReader br = new BufferedReader(new InputStreamReader(in));
-
-            String strLine;
-            while ((strLine = br.readLine()) != null) {
-
-                if (hasHeader) {
-                    hasHeader = false;
-                    continue;
-                }
-
-                if (seperator != null && !seperator.isEmpty()) {
-                    String[] arr = strLine.split(seperator);
-                    Integer nr1 = new Integer(arr[0]);
-                    Integer nr2 = new Integer(arr[1]);
-
-                    list.add(new IntegerPair(nr1, nr2));
-                }
-            }
-
-            in.close();
-        } catch (Exception e) {
-            System.out.println("Error reading file " + file);
-        }
-
-        return list;
-    }
-
     public static List<Integer[]> loadTestData(String file, boolean hasHeader, String seperator, int rowSize) {
         List<Integer[]> list = new ArrayList<Integer[]>();
         try {
@@ -60,7 +27,12 @@ public class TestData {
                     continue;
                 }
 
-                if (seperator != null && !seperator.isEmpty() && rowSize > 0) {
+                if (rowSize == 1) {
+                    Integer[] ints = {new Integer(strLine)};
+                    list.add(ints);
+                }
+
+                if (seperator != null && !seperator.isEmpty() && rowSize > 1) {
                     String[] strings = strLine.split(seperator);
                     Integer[] ints = convertToIntArray(strings);
 

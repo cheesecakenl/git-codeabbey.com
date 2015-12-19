@@ -9,7 +9,7 @@ public class SumsInLoopTest {
 
     @Test
     public void test() throws Exception {
-        String answer = solution.loop("input/sums-in-loop.txt", true, " ");
+        String answer = solution.loop("input/sums-in-loop.txt", true, " ", 2);
         assertEquals("858235 1590918 1272578 1081428 1845241 699520 1104395 817698 1494198 596926 1125190 1024300 " +
                 "768573 1349361 ", answer);
     }
