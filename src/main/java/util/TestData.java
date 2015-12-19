@@ -11,7 +11,7 @@ import java.util.List;
 
 public class TestData {
 
-    public static List<Integer[]> loadTestData(String file, boolean hasHeader, String seperator, int rowSize) {
+    public static List<Integer[]> loadTestData(String file, boolean hasHeader, String seperator) {
         List<Integer[]> list = new ArrayList<Integer[]>();
         try {
             FileInputStream fstream = new FileInputStream(file);
@@ -27,15 +27,13 @@ public class TestData {
                     continue;
                 }
 
-                if (rowSize == 1) {
-                    Integer[] ints = {new Integer(strLine)};
-                    list.add(ints);
-                }
-
-                if (seperator != null && !seperator.isEmpty() && rowSize > 1) {
+                if (seperator != null && !seperator.isEmpty()) {
                     String[] strings = strLine.split(seperator);
                     Integer[] ints = convertToIntArray(strings);
 
+                    list.add(ints);
+                } else {
+                    Integer[] ints = {new Integer(strLine)};
                     list.add(ints);
                 }
             }

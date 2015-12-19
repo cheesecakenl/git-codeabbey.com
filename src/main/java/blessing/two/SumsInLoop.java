@@ -7,8 +7,8 @@ import java.util.List;
 
 public class SumsInLoop {
 
-    public String loop(String file, boolean hasHeader, String seperator, int rowSize) {
-        List<Integer[]> list = TestData.loadTestData(file, hasHeader, seperator, rowSize);
+    public String loop(String file, boolean hasHeader, String seperator) {
+        List<Integer[]> list = TestData.loadTestData(file, hasHeader, seperator);
 
         StringBuilder sb = new StringBuilder();
         for (Integer[] pairs : list) {
