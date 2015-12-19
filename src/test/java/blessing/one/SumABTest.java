@@ -1,7 +1,7 @@
-package blessing.two;
+package blessing.one;
 
 import org.junit.Test;
-import static junit.framework.Assert.*;
+import static junit.framework.TestCase.assertEquals;
 
 public class SumABTest {
 
